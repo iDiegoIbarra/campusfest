@@ -19,7 +19,7 @@ gh repo edit iDiegoIbarra/campusfest --template --enable-issues
 
 > La rama `solucion` es **solo local**. No la publiques: el repo es público y los alumnos la verían.
 
-1. En `github.com/iDiegoIbarra/campusfest` → **Settings → Pages → Source: GitHub Actions** → **Actions → 4 · CI/CD → Re-run all jobs**.
+1. En `github.com/iDiegoIbarra/campusfest` → **Settings → Pages → Source: GitHub Actions** → **Actions → 4 · CI/CD → Re-run failed jobs**.
 2. Crea el Issue de registro y fíjalo (**Pin issue**):
    ```powershell
    gh issue create --repo iDiegoIbarra/campusfest --title "🏁 Registro del taller: comenta tu usuario de GitHub" --body "Comenta SOLO tu usuario de GitHub (por ejemplo: juanperez). Si tu repositorio no se llama campusfest, escribe usuario/nombre-del-repo."
@@ -76,7 +76,8 @@ node instructor/marcador/server.mjs   # marcador en http://localhost:8080
 | Si pasa esto | Haz esto |
 |---|---|
 | Un alumno no tiene cuenta o no puede entrar | Trabaja en pareja con otro alumno (cuenta del compañero). Que cree su cuenta después. |
-| **4 · CI/CD** falla en “Verificar Pages” | Paso 2 del README y **Re-run all jobs**. |
+| **4 · CI/CD** falla en “Verificar Pages” | Paso 2 del README y **Re-run failed jobs**. |
+| **Publicar** falla con *No artifacts named "github-pages"* | Bug conocido de GitHub (actions/deploy-pages#451). El workflow ya reintenta solo una vez; si aun así falla: **Actions → 4 · CI/CD → Run workflow** (ejecución nueva). Nunca “Re-run all jobs”: duplica el artefacto. |
 | Rompió `main` | Validar bloquea el despliegue: su sitio sigue funcionando. Que haga **Revert** del commit o abra otra rama. |
 | Borró workflows o pruebas | **Revert**. El marcador usa pruebas oficiales: no gana puntos “arreglando” pruebas. |
 | GitHub Actions lento o en cola | Avanza con la explicación del log usando tus capturas. El marcador se actualiza solo cuando terminan. |

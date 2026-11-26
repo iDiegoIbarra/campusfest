@@ -33,7 +33,7 @@ Si **Validar** falla, **no se publica nada**: tu sitio en línea nunca se rompe.
 
 1. En **tu** repositorio ve a **Settings → Pages**.
 2. En **Build and deployment → Source** elige **GitHub Actions**.
-3. Ve a la pestaña **Actions**. Verás **4 · CI/CD** en rojo ❌: falló porque Pages aún no estaba activo. Ábrelo y presiona **Re-run all jobs**.
+3. Ve a la pestaña **Actions**. Verás **4 · CI/CD** en rojo ❌: falló porque Pages aún no estaba activo. Ábrelo y presiona **Re-run failed jobs**.
 4. Cuando esté en verde ✅, abre tu sitio: `https://TU-USUARIO.github.io/campusfest/`
 
 ¡Acabas de hacer tu primer despliegue con CI/CD!
@@ -117,11 +117,12 @@ Empate: gana quien llegó primero a ese puntaje.
 
 | Veo esto | Haz esto |
 |---|---|
-| **4 · CI/CD** falla en “Verificar que GitHub Pages esté activado” | Paso 2: Settings → Pages → Source: **GitHub Actions**, y luego **Re-run all jobs** |
+| **4 · CI/CD** falla en “Verificar que GitHub Pages esté activado” | Paso 2: Settings → Pages → Source: **GitHub Actions**, y luego **Re-run failed jobs** |
 | Mi PR no muestra checks | Espera 10–20 segundos y recarga. Revisa que el PR sea hacia `main` de **tu** repositorio |
 | “Revisión del sitio”: *app.js usa “x”, pero logic.js ya no lo exporta* | Renombraste o borraste una función. Regresa el nombre original |
 | “Error de sintaxis” | Abre el archivo y la línea que indica el log. Suele faltar `)` o `}` |
 | Mi sitio no cambia después del merge | Espera a que **4 · CI/CD** termine y recarga con `Ctrl+F5` |
+| **Publicar** falla con *No artifacts named "github-pages"* o *Multiple artifacts* | Es un fallo temporal de GitHub. Ve a **Actions → 4 · CI/CD → Run workflow** para lanzar una ejecución nueva |
 | Rompí todo | En el PR presiona **Close pull request** y empieza otra rama desde `main` |
 | Quiero ver la app en mi compu | Opcional: con Node.js 22 o superior ejecuta `npm start` y abre `http://localhost:5173` |
 
