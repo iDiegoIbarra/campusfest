@@ -47,6 +47,7 @@ node scripts/serve.mjs --lan          # app con bugs en http://localhost:5173/?h
 En otra terminal:
 
 ```powershell
+Remove-Item Env:GH_TOKEN -ErrorAction SilentlyContinue   # solo en esta ventana: usa la cuenta personal
 $env:GITHUB_TOKEN = (gh auth token)   # de la cuenta personal
 $env:MARCADOR_ISSUE = "iDiegoIbarra/campusfest#1"
 node instructor/marcador/server.mjs   # marcador en http://localhost:8080

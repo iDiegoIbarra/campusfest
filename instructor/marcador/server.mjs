@@ -1,6 +1,7 @@
 // Marcador en vivo del taller (solo para el instructor).
 //
 // Uso (PowerShell):
+//   Remove-Item Env:GH_TOKEN -ErrorAction SilentlyContinue   # solo en esta ventana: usa la cuenta personal
 //   $env:GITHUB_TOKEN = (gh auth token)           # token de tu cuenta PERSONAL (opcional, evita límites de la API)
 //   $env:MARCADOR_ISSUE = "iDiegoIbarra/campusfest#1"  # Issue donde los alumnos comentan su usuario
 //   node instructor/marcador/server.mjs

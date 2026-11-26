@@ -5,6 +5,7 @@ Los alumnos **no necesitan** esta carpeta.
 El marcador lee los participantes de un Issue (o de `participantes.txt`), descarga el código **publicado** de cada alumno (`https://usuario.github.io/campusfest/`) y le corre las **pruebas oficiales** de `official-checks.mjs`. Cada evaluación corre en un proceso Node separado con `--permission` (no puede escribir en disco ni lanzar procesos) y con un límite de 5 segundos.
 
 ```powershell
+Remove-Item Env:GH_TOKEN -ErrorAction SilentlyContinue   # solo en esta ventana: usa la cuenta personal
 $env:GITHUB_TOKEN = (gh auth token)              # cuenta personal; opcional pero recomendado
 $env:MARCADOR_ISSUE = "iDiegoIbarra/campusfest#1"
 node instructor/marcador/server.mjs              # http://localhost:8080
